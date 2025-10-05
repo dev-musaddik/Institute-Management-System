@@ -13,8 +13,9 @@ const Header = ({ user, logout, renderDashboardLink }) => (
     <div className="container mx-auto flex justify-between items-center">
       <div className="flex items-center space-x-3">
         <GraduationCap className="w-7 h-7 text-teal-400" />
-        <Link to="/" className="text-xl font-bold tracking-wide text-white">
-          Faridpur Polytechnic Institute
+        <Link to="/" className="text-sm sm:text-xl  font-bold tracking-wide text-white">
+          <span className="flex sm:hidden">FPIMS</span>
+          <span className="hidden sm:flex">Faridpur Polytechnic Institute</span>
         </Link>
       </div>
       <div className="flex items-center space-x-6">
