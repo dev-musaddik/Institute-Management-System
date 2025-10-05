@@ -94,7 +94,7 @@ const quickLinks = [
 // --- Main HomePage Component ---
 const HomePage = () => {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-slate-900 text-white p-6 relative overflow-hidden font-sans">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-slate-900 text-white p-2 sm:4 relative overflow-hidden font-sans">
       
 
     
@@ -110,11 +110,11 @@ const HomePage = () => {
       <div className="floating-shape-2 absolute bottom-1/4 right-1/4 w-40 h-40 bg-indigo-500 rounded-lg blur-3xl opacity-20"></div>
 
       {/* Main Content Layout */}
-      <main className="z-10 w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-around px-4 pt-24">
+      <main className="z-10 w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-around px-1 pt-24">
         {/* Left Side: Developer Info */}
 
         {/* Right Side: Main Portal Card */}
-        <div className="group relative bg-slate-800/80 backdrop-blur-md p-8 sm:p-12 rounded-2xl shadow-2xl max-w-2xl w-full text-center border border-slate-700/50">
+        <div className="group relative bg-slate-800/80 backdrop-blur-md p-4 sm:p-2 rounded-2xl shadow-2xl max-w-2xl w-full text-center border border-slate-700/50">
           <div className="mb-8 flex justify-center">
             <InstituteLogo />
           </div>
