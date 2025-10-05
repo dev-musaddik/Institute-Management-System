@@ -10,6 +10,7 @@ import AdminDashboard from './pages/AdminDashboard';
 import TeacherDashboard from './pages/TeacherDashboard';
 import StudentDashboard from './pages/StudentDashboard';
 import NotFoundPage from './pages/NotFoundPage';
+import DeveloperInfo from './components/DeveloperInfo';
 
 const PrivateRoute = ({ children, roles }) => {
   const { user, loading } = useAuth();

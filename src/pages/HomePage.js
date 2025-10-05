@@ -19,72 +19,49 @@ const InstituteLogo = () => (
   </div>
 );
 
-// --- Fixed Header Bar ---
-const Header = () => (
-  <header className="fixed top-0 left-0 right-0 z-10 bg-slate-900/90 backdrop-blur-md border-b border-slate-700/50 shadow-xl px-6 py-4">
-    <div className="max-w-7xl mx-auto flex justify-between items-center">
-      <div className="flex items-center space-x-3">
-        <GraduationCap className="w-7 h-7 text-teal-400" />
-        <span className="text-xl font-bold tracking-wide text-white">
-          Faridpur Polytechnic Institute
-        </span>
-      </div>
-      <div className="flex items-center space-x-4">
-        <button className="text-slate-300 hover:text-rose-400 transition duration-200 relative">
-          <Bell className="w-5 h-5" />
-          <span className="absolute -top-1 -right-1 h-2 w-2 rounded-full bg-rose-500 animate-pulse"></span>
-        </button>
-        <div className="w-8 h-8 rounded-full bg-slate-700 border-2 border-teal-500 cursor-pointer hover:scale-105 transition duration-200 flex items-center justify-center text-sm font-semibold">
-          FP
-        </div>
-      </div>
-    </div>
-  </header>
-);
 
 // --- Developer Info Component with MAX Highlight and Responsive Sizing ---
-const DeveloperInfo = () => (
-  <div className="flex flex-col items-center text-center lg:text-left lg:items-start mb-12 lg:mb-0 w-full lg:max-w-md relative">
-    {/* Responsive and Enhanced Animated Circle Light Effect */}
-    <div className="relative w-36 h-36 sm:w-48 sm:h-48 flex items-center justify-center mb-6">
-      {" "}
-      {/* Responsive size */}
-      {/* Added box-shadow for a much stronger light effect */}
-      <div
-        className="absolute inset-0 rounded-full animate-pulse-custom border-2 border-teal-400/60 shadow-[0_0_20px_0] shadow-teal-500/80"
-        style={{ animationDelay: "0s" }}
-      ></div>
-      <div
-        className="absolute inset-0 rounded-full animate-pulse-custom border-2 border-teal-400/50 shadow-[0_0_20px_0] shadow-teal-500/80"
-        style={{ animationDelay: "1s" }}
-      ></div>
-      <div
-        className="absolute inset-0 rounded-full animate-pulse-custom border-2 border-teal-400/40 shadow-[0_0_20px_0] shadow-teal-500/80"
-        style={{ animationDelay: "2s" }}
-      ></div>
-      <Code
-        className="w-16 h-16 sm:w-20 sm:h-20 text-teal-300 drop-shadow-[0_0_8px_rgba(45,212,191,0.8)]"
-        strokeWidth={1.5}
-      />{" "}
-      {/* Responsive Icon */}
-    </div>
+// const DeveloperInfo = () => (
+//   <div className="flex flex-col items-center text-center lg:text-left lg:items-start mb-12 lg:mb-0 w-full lg:max-w-md relative">
+//     {/* Responsive and Enhanced Animated Circle Light Effect */}
+//     <div className="relative w-36 h-36 sm:w-48 sm:h-48 flex items-center justify-center mb-6">
+//       {" "}
+//       {/* Responsive size */}
+//       {/* Added box-shadow for a much stronger light effect */}
+//       <div
+//         className="absolute inset-0 rounded-full animate-pulse-custom border-2 border-teal-400/60 shadow-[0_0_20px_0] shadow-teal-500/80"
+//         style={{ animationDelay: "0s" }}
+//       ></div>
+//       <div
+//         className="absolute inset-0 rounded-full animate-pulse-custom border-2 border-teal-400/50 shadow-[0_0_20px_0] shadow-teal-500/80"
+//         style={{ animationDelay: "1s" }}
+//       ></div>
+//       <div
+//         className="absolute inset-0 rounded-full animate-pulse-custom border-2 border-teal-400/40 shadow-[0_0_20px_0] shadow-teal-500/80"
+//         style={{ animationDelay: "2s" }}
+//       ></div>
+//       <Code
+//         className="w-16 h-16 sm:w-20 sm:h-20 text-teal-300 drop-shadow-[0_0_8px_rgba(45,212,191,0.8)]"
+//         strokeWidth={1.5}
+//       />{" "}
+//       {/* Responsive Icon */}
+//     </div>
 
-    {/* Highlighted & Animated Text */}
-    <h2
-      className="text-3xl sm:text-4xl font-extrabold mb-3 tracking-tight animate-text-glow 
-                 bg-gradient-to-r from-white via-teal-300 to-white
-                 bg-clip-text text-transparent bg-200% animate-shine"
-    >
-      Under Active Development
-    </h2>
-    <p className="text-slate-400 text-base sm:text-lg max-w-sm">
-      {" "}
-      {/* Responsive text */}
-      This platform is being actively developed and improved. New features and
-      optimizations are being added to enhance your experience.
-    </p>
-  </div>
-);
+//     {/* Highlighted & Animated Text */}
+//     <h2
+//       className="text-3xl sm:text-4xl font-extrabold mb-3 tracking-tight animate-text-glow 
+//                  bg-gradient-to-r from-white via-teal-300 to-white
+//                  bg-clip-text text-transparent bg-200% animate-shine"
+//     >
+//       Under Active Development
+//     </h2>
+//     <p className="text-slate-400 text-base sm:text-lg max-w-sm">
+//       This platform is being actively developed and improved by{" "}
+//       <span className="font-semibold text-teal-400/80">Musaddik</span>. New
+//       features and optimizations are being added to enhance your experience.
+//     </p>
+//   </div>
+// );
 
 // --- Quick Links Data ---
 const quickLinks = [
@@ -118,41 +95,9 @@ const quickLinks = [
 const HomePage = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-slate-900 text-white p-6 relative overflow-hidden font-sans">
-      <Header />
+      
 
-      {/* Floating Background Effects & ALL ANIMATIONS */}
-      <style>{`
-        @keyframes float {
-          0% { transform: translateY(0px) rotate(0deg); opacity: 0.2; }
-          50% { transform: translateY(-20px) rotate(15deg); opacity: 0.3; }
-          100% { transform: translateY(0px) rotate(0deg); opacity: 0.2; }
-        }
-        .floating-shape-1 { animation: float 10s ease-in-out infinite; }
-        .floating-shape-2 { animation: float 12s ease-in-out infinite reverse; }
-
-        @keyframes pulse-custom {
-          0% { transform: scale(0.6); opacity: 0.8; }
-          100% { transform: scale(1.5); opacity: 0; }
-        }
-        .animate-pulse-custom {
-          animation: pulse-custom 3s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
-        }
-
-        /* NEW: Shimmering gradient animation for text */
-        @keyframes animate-shine {
-          0% { background-position: -200% center; }
-          100% { background-position: 200% center; }
-        }
-        .bg-200\\% { background-size: 200% auto; }
-        .animate-shine { animation: animate-shine 4s linear infinite; }
-
-        /* NEW: Pulsing glow animation for text */
-        @keyframes text-glow {
-          0%, 100% { filter: drop-shadow(0 0 10px theme('colors.teal.500')); }
-          50% { filter: drop-shadow(0 0 20px theme('colors.teal.300')); }
-        }
-        .animate-text-glow { animation: text-glow 3s ease-in-out infinite; }
-      `}</style>
+    
 
       <div
         className="absolute inset-0 opacity-10"
@@ -167,7 +112,6 @@ const HomePage = () => {
       {/* Main Content Layout */}
       <main className="z-10 w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-around px-4 pt-24">
         {/* Left Side: Developer Info */}
-        <DeveloperInfo />
 
         {/* Right Side: Main Portal Card */}
         <div className="group relative bg-slate-800/80 backdrop-blur-md p-8 sm:p-12 rounded-2xl shadow-2xl max-w-2xl w-full text-center border border-slate-700/50">
@@ -232,12 +176,16 @@ const HomePage = () => {
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="z-10 mt-12 pb-6 text-sm text-slate-500 flex items-center space-x-2">
-        <Archive className="w-4 h-4" />
+      {/* Footer -- MODIFIED */}
+      <footer className="z-10 mt-12 pb-6 text-sm text-slate-500 flex flex-col sm:flex-row items-center space-x-2">
         <span>
           &copy; {new Date().getFullYear()} Faridpur Polytechnic Institute. All
           Rights Reserved.
+        </span>
+        <span className="hidden sm:inline">|</span>
+        <span>
+          Developed by{" "}
+          <span className="font-semibold text-teal-400/80">Musaddik</span>
         </span>
       </footer>
     </div>
