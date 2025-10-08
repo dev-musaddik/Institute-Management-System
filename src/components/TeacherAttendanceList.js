@@ -69,13 +69,13 @@ function TeacherAttendanceList({ teacherId }) {
     if (selectedCourse) {
       // This logic needs to be refined. A teacher is assigned to course-semester pairs.
       // We need to filter students who are in the selected semester AND are part of a course
-      // that the teacher is assigned to. For simplicity, let's assume filtering by student's semester_id for now.
+      // that the teacher is assigned to. For simplicity, let's assume filtering by student's semesterId for now.
       // A more robust solution would involve checking teacher_assignments table.
       tempStudents = tempStudents.filter(student => student.Courses.some(c => c.id === parseInt(selectedCourse)));
     }
 
     if (selectedSemester) {
-      tempStudents = tempStudents.filter(student => student.semester_id === parseInt(selectedSemester));
+      tempStudents = tempStudents.filter(student => student.semesterId === parseInt(selectedSemester));
     }
     setFilteredStudents(tempStudents);
   };
@@ -94,7 +94,7 @@ function TeacherAttendanceList({ teacherId }) {
     try {
       setLoadingAttendance(true);
       await markAttendanceApi('/mark', {
-        student_id: studentId,
+        studentId: studentId,
         date: moment().format('YYYY-MM-DD'),
         status: status,
         reason: status === 'Absent' ? 'Marked absent by teacher' : null,

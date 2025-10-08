@@ -11,8 +11,8 @@ function UserForm({ userToEdit, onSave, onCancel }) {
   const [lastName, setLastName] = useState("");
   const [rollNumber, setRollNumber] = useState("");
   const [registrationNumber, setRegistrationNumber] = useState("");
-  const [department_id, setDepartmentId] = useState("");
-  const [semester_id, setSemesterId] = useState("");
+  const [departmentId, setDepartmentId] = useState("");
+  const [semesterId, setSemesterId] = useState("");
   const [phone, setPhone] = useState("");
   const [error, setError] = useState(null);
   const [departments, setDepartments] = useState([]);
@@ -35,11 +35,11 @@ function UserForm({ userToEdit, onSave, onCancel }) {
       setRollNumber(userToEdit.Student?.rollNumber || "");
       setRegistrationNumber(userToEdit.Student?.registrationNumber || "");
       setDepartmentId(
-        userToEdit.Student?.department_id ||
-          userToEdit.Teacher?.department_id ||
+        userToEdit.Student?.departmentId ||
+          userToEdit.Teacher?.departmentId ||
           ""
       );
-      setSemesterId(userToEdit.Student?.semester_id || "");
+      setSemesterId(userToEdit.Student?.semesterId || "");
       setPhone(userToEdit.Student?.phone || userToEdit.Teacher?.phone || "");
       setPassword("");
     } else {
@@ -83,10 +83,10 @@ function UserForm({ userToEdit, onSave, onCancel }) {
     if (role === "Student") {
       userData.rollNumber = rollNumber;
       userData.registrationNumber = registrationNumber;
-      userData.department_id = parseInt(department_id);
-      userData.semester_id = parseInt(semester_id);
+      userData.departmentId = parseInt(departmentId);
+      userData.semesterId = parseInt(semesterId);
     } else if (role === "Teacher") {
-      userData.department_id = parseInt(department_id);
+      userData.departmentId = parseInt(departmentId);
     }
 
     try {
@@ -214,14 +214,14 @@ function UserForm({ userToEdit, onSave, onCancel }) {
           <div>
             <label
               className="block text-sm font-bold mb-2 text-gray-300"
-              htmlFor="department_id"
+              htmlFor="departmentId"
             >
               Department
             </label>
             <select
-              id="department_id"
+              id="departmentId"
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-800 bg-opacity-50 border-gray-700 text-white"
-              value={department_id}
+              value={departmentId}
               onChange={(e) => setDepartmentId(e.target.value)}
               required
             >
@@ -272,14 +272,14 @@ function UserForm({ userToEdit, onSave, onCancel }) {
             <div>
               <label
                 className="block text-sm font-bold mb-2 text-gray-300"
-                htmlFor="semester_id"
+                htmlFor="semesterId"
               >
                 Semester
               </label>
               <select
-                id="semester_id"
+                id="semesterId"
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-800 bg-opacity-50 border-gray-700 text-white"
-                value={semester_id}
+                value={semesterId}
                 onChange={(e) => setSemesterId(e.target.value)}
                 required
               >

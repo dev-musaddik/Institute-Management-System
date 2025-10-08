@@ -26,7 +26,7 @@ function Table({ headers, data, renderRow, actions }) {
           </tr>
         </thead>
         <tbody className="divide-y divide-gray-800">
-          {data.length === 0 ? (
+          {data?.length === 0 ? (
             <tr>
               <td
                 colSpan={headers.length + (actions ? actions.length : 0)}
@@ -36,7 +36,7 @@ function Table({ headers, data, renderRow, actions }) {
               </td>
             </tr>
           ) : (
-            data.map((item, index) => renderRow(item, index))
+            data?.map((item, index) => renderRow(item, index))
           )}
         </tbody>
       </table>

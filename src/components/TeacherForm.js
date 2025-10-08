@@ -5,7 +5,7 @@ function TeacherForm({ teacherToEdit, onSave, onCancel }) {
   const [userId, setUserId] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [department_id, setDepartmentId] = useState(""); // Changed to department_id
+  const [departmentId, setDepartmentId] = useState(""); // Changed to departmentId
   const [phone, setPhone] = useState("");
   const [error, setError] = useState(null);
 
@@ -25,7 +25,7 @@ function TeacherForm({ teacherToEdit, onSave, onCancel }) {
       setUserId(teacherToEdit.userId);
       setFirstName(teacherToEdit.firstName);
       setLastName(teacherToEdit.lastName);
-      setDepartmentId(teacherToEdit.department_id);
+      setDepartmentId(teacherToEdit.departmentId);
       setPhone(teacherToEdit.phone);
     } else {
       setUserId("");
@@ -61,7 +61,7 @@ function TeacherForm({ teacherToEdit, onSave, onCancel }) {
       userId: parseInt(userId),
       firstName,
       lastName,
-      department_id: parseInt(department_id),
+      departmentId: parseInt(departmentId),
       phone,
     };
 
@@ -134,12 +134,12 @@ function TeacherForm({ teacherToEdit, onSave, onCancel }) {
           />
         </div>
         <div>
-          <label htmlFor="department_id" className="block text-sm font-bold mb-2 text-gray-300">
+          <label htmlFor="departmentId" className="block text-sm font-bold mb-2 text-gray-300">
             Department
           </label>
           <select
-            id="department_id"
-            value={department_id}
+            id="departmentId"
+            value={departmentId}
             onChange={(e) => setDepartmentId(e.target.value)}
             required
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-800 bg-opacity-50 border-gray-700 text-white"

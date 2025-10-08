@@ -6,7 +6,7 @@ function ResultForm({ resultToEdit, onSave, onCancel }) {
   const [courseId, setCourseId] = useState('');
   const [marks, setMarks] = useState('');
   const [grade, setGrade] = useState('');
-  const [semester_id, setSemesterId] = useState(''); // Changed to semester_id
+  const [semesterId, setSemesterId] = useState(''); // Changed to semesterId
   const [error, setError] = useState(null);
 
   const [students, setStudents] = useState([]);
@@ -28,7 +28,7 @@ function ResultForm({ resultToEdit, onSave, onCancel }) {
       setCourseId(resultToEdit.courseId);
       setMarks(resultToEdit.marks);
       setGrade(resultToEdit.grade);
-      setSemesterId(resultToEdit.semester_id); // Use semester_id
+      setSemesterId(resultToEdit.semesterId); // Use semesterId
     } else {
       // Reset form for new record
       setStudentId('');
@@ -61,7 +61,7 @@ function ResultForm({ resultToEdit, onSave, onCancel }) {
       courseId: parseInt(courseId),
       marks: parseFloat(marks),
       grade,
-      semester_id: parseInt(semester_id), // Use semester_id
+      semesterId: parseInt(semesterId), // Use semesterId
     };
 
     try {
@@ -134,11 +134,11 @@ function ResultForm({ resultToEdit, onSave, onCancel }) {
           />
         </div>
         <div>
-          <label className="block text-sm font-bold mb-2 text-gray-300" htmlFor="semester_id">Semester</label>
+          <label className="block text-sm font-bold mb-2 text-gray-300" htmlFor="semesterId">Semester</label>
           <select
-            id="semester_id"
+            id="semesterId"
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-800 bg-opacity-50 border-gray-700 text-white"
-            value={semester_id}
+            value={semesterId}
             onChange={(e) => setSemesterId(e.target.value)}
             required
           >

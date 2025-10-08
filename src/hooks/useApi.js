@@ -1,9 +1,9 @@
 import { useState, useCallback } from "react";
-import axios from "axios";
+import { api } from "../api/api";
 
 
 const useApi = (url) => {
-
+console.log(url)
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -13,7 +13,7 @@ const useApi = (url) => {
       setLoading(true);
       setError(null);
       try {
-        const response = await axios({
+        const response = await api({
           method,
           url: `${url}${endpoint}`,
           data: payload,

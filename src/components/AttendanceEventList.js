@@ -27,7 +27,7 @@ function AttendanceEventList() {
   const renderEventRow = (event) => (
     <tr key={event.id} className="hover:bg-gray-800">
       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">{event.id}</td>
-      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">{event.student_id}</td>
+      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">{event.studentId}</td>
       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">{event.event_type}</td>
       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">{event.reason}</td>
       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">{moment(event.timestamp).format('YYYY-MM-DD HH:mm')}</td>

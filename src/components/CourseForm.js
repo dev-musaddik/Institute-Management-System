@@ -4,8 +4,8 @@ import useApi from "../hooks/useApi";
 function CourseForm({ courseToEdit, onSave, onCancel }) {
   const [courseCode, setCourseCode] = useState("");
   const [courseName, setCourseName] = useState("");
-  const [department_id, setDepartmentId] = useState(""); // Changed to department_id
-  const [semester_id, setSemesterId] = useState("");     // Changed to semester_id
+  const [departmentId, setDepartmentId] = useState(""); // Changed to departmentId
+  const [semesterId, setSemesterId] = useState("");     // Changed to semesterId
   const [teacherId, setTeacherId] = useState("");
   const [error, setError] = useState(null);
 
@@ -26,8 +26,8 @@ function CourseForm({ courseToEdit, onSave, onCancel }) {
     if (courseToEdit) {
       setCourseCode(courseToEdit.courseCode);
       setCourseName(courseToEdit.courseName);
-      setDepartmentId(courseToEdit.department_id);
-      setSemesterId(courseToEdit.semester_id);
+      setDepartmentId(courseToEdit.departmentId);
+      setSemesterId(courseToEdit.semesterId);
       setTeacherId(courseToEdit.teacherId || "");
     } else {
       setCourseCode("");
@@ -58,8 +58,8 @@ function CourseForm({ courseToEdit, onSave, onCancel }) {
     const courseData = {
       courseCode,
       courseName,
-      department_id: parseInt(department_id),
-      semester_id: parseInt(semester_id),
+      departmentId: parseInt(departmentId),
+      semesterId: parseInt(semesterId),
       teacherId: teacherId ? parseInt(teacherId) : null,
     };
 
@@ -112,12 +112,12 @@ function CourseForm({ courseToEdit, onSave, onCancel }) {
           />
         </div>
         <div>
-          <label className="block text-sm font-bold mb-2 text-gray-300" htmlFor="department_id">
+          <label className="block text-sm font-bold mb-2 text-gray-300" htmlFor="departmentId">
             Department
           </label>
           <select
-            id="department_id"
-            value={department_id}
+            id="departmentId"
+            value={departmentId}
             onChange={(e) => setDepartmentId(e.target.value)}
             required
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-800 bg-opacity-50 border-gray-700 text-white"
@@ -129,12 +129,12 @@ function CourseForm({ courseToEdit, onSave, onCancel }) {
           </select>
         </div>
         <div>
-          <label className="block text-sm font-bold mb-2 text-gray-300" htmlFor="semester_id">
+          <label className="block text-sm font-bold mb-2 text-gray-300" htmlFor="semesterId">
             Semester
           </label>
           <select
-            id="semester_id"
-            value={semester_id}
+            id="semesterId"
+            value={semesterId}
             onChange={(e) => setSemesterId(e.target.value)}
             required
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-800 bg-opacity-50 border-gray-700 text-white"

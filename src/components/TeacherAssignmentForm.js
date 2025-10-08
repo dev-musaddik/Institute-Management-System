@@ -22,7 +22,7 @@ function TeacherAssignmentForm({ assignmentToEdit, onSave, onCancel }) {
     if (assignmentToEdit) {
       setTeacherId(assignmentToEdit.teacher_id);
       setCourseId(assignmentToEdit.course_id);
-      setSemesterId(assignmentToEdit.semester_id);
+      setSemesterId(assignmentToEdit.semesterId);
     } else {
       setTeacherId('');
       setCourseId('');
@@ -46,7 +46,7 @@ function TeacherAssignmentForm({ assignmentToEdit, onSave, onCancel }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const payload = { teacher_id: teacherId, course_id: courseId, semester_id: semesterId };
+      const payload = { teacher_id: teacherId, course_id: courseId, semesterId: semesterId };
       if (assignmentToEdit) {
         await put(`/${assignmentToEdit.id}`, payload);
         alert('Teacher assignment updated successfully!');

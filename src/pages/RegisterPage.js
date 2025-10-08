@@ -4,14 +4,15 @@ import { useNavigate } from "react-router-dom";
 import useApi from "../hooks/useApi";
 
 function RegisterPage() {
-  const [name, setName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("Student");
   const [rollNumber, setRollNumber] = useState("");
   const [registrationNumber, setRegistrationNumber] = useState("");
-  const [department_id, setDepartmentId] = useState("");
-  const [semester_id, setSemesterId] = useState("");
+  const [departmentId, setDepartmentId] = useState("");
+  const [semesterId, setSemesterId] = useState("");
   const [phone, setPhone] = useState("");
 
   const [departments, setDepartments] = useState([]);
@@ -19,7 +20,9 @@ function RegisterPage() {
 
   const { register } = useAuth();
   const navigate = useNavigate();
-  const { get: getDepartments } = useApi("http://localhost:5000/api/departments");
+  const { get: getDepartments } = useApi(
+    "http://localhost:5000/api/departments"
+  );
   const { get: getSemesters } = useApi("http://localhost:5000/api/semesters");
 
   useEffect(() => {
@@ -31,6 +34,7 @@ function RegisterPage() {
     try {
       const data = await getDepartments("/");
       setDepartments(data);
+      console.log(data)
     } catch (err) {
       console.error("Failed to fetch departments:", err);
     }
@@ -45,10 +49,13 @@ function RegisterPage() {
     }
   };
 
+  console.log(departmentId)
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const userData = {
-      name,
+      firstName,
+      lastName,
       email,
       password,
       role,
@@ -56,12 +63,14 @@ function RegisterPage() {
     };
 
     if (role === "Student") {
+      userData.firstName = firstName;
+      userData.lastName = lastName;
       userData.rollNumber = rollNumber;
       userData.registrationNumber = registrationNumber;
-      userData.department_id = parseInt(department_id);
-      userData.semester_id = parseInt(semester_id);
+      userData.departmentId = parseInt(departmentId);
+      userData.semesterId = parseInt(semesterId);
     } else if (role === "Teacher") {
-      userData.department_id = parseInt(department_id);
+      userData.departmentId = parseInt(departmentId);
     }
 
     const success = await register(userData);
@@ -80,20 +89,31 @@ function RegisterPage() {
           Create Your Account
         </h2>
         <form onSubmit={handleSubmit} className="space-y-5">
+          {/* First Name */}
           <div>
-            <label
-              className="block text-sm font-medium mb-1 text-gray-300"
-              htmlFor="name"
-            >
-              Name
+            <label className="block text-sm font-medium mb-1 text-gray-300">
+              First Name
             </label>
             <input
               type="text"
-              id="name"
-              className="w-full px-3 py-2 rounded-lg bg-gray-800/50 border border-gray-700 text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-500"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
               required
+              className="w-full px-3 py-2 rounded-lg bg-gray-800/50 border border-gray-700 text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-500"
+            />
+          </div>
+
+          {/* Last Name */}
+          <div>
+            <label className="block text-sm font-medium mb-1 text-gray-300">
+              Last Name
+            </label>
+            <input
+              type="text"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+              required
+              className="w-full px-3 py-2 rounded-lg bg-gray-800/50 border border-gray-700 text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-500"
             />
           </div>
 
@@ -170,14 +190,14 @@ function RegisterPage() {
             <div>
               <label
                 className="block text-sm font-medium mb-1 text-gray-300"
-                htmlFor="department_id"
+                htmlFor="departmentId"
               >
                 Department
               </label>
               <select
-                id="department_id"
+                id="departmentId"
                 className="w-full px-3 py-2 rounded-lg bg-gray-800/50 border border-gray-700 text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-500"
-                value={department_id}
+                value={departmentId}
                 onChange={(e) => setDepartmentId(e.target.value)}
                 required
               >
@@ -230,14 +250,14 @@ function RegisterPage() {
               <div>
                 <label
                   className="block text-sm font-medium mb-1 text-gray-300"
-                  htmlFor="semester_id"
+                  htmlFor="semesterId"
                 >
                   Semester
                 </label>
                 <select
-                  id="semester_id"
+                  id="semesterId"
                   className="w-full px-3 py-2 rounded-lg bg-gray-800/50 border border-gray-700 text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-500"
-                  value={semester_id}
+                  value={semesterId}
                   onChange={(e) => setSemesterId(e.target.value)}
                   required
                 >

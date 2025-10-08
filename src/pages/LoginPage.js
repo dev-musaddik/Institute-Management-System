@@ -20,13 +20,14 @@ function LoginPage() {
       if (user && user.role === "Student" && user.id) {
         await handleStudentNotifications(user.id);
       }
+      console.log(user)
 
       // Navigate based on role
-      if (user.role === "Admin") {
+      if (user?.role === "Admin") {
         navigate("/admin-dashboard");
-      } else if (user.role === "Teacher") {
+      } else if (user?.role === "Teacher") {
         navigate("/teacher-dashboard");
-      } else if (user.role === "Student") {
+      } else if (user?.role === "Student") {
         navigate("/student-dashboard");
       } else {
         navigate("/");
